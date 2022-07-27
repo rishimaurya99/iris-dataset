@@ -1,1 +1,36 @@
+#importing required libraries 
 
+import numpy as np 
+
+import pandas as pd 
+
+import sklearn
+
+from sklearn.model_selection import train_test_split
+
+from sklearn.ensemble import RandomForestClassifier 
+
+from sklearn.metrics import accuracy_score 
+
+from sklearn.datasets import load_iris
+
+import sklearn.metrics as metrics
+
+
+
+#Loading datasets 
+
+iris_data = load_iris() 
+
+iris=pd.DataFrame(iris_data.data)
+
+#shape of datasets 
+
+print ("Dataset Shape: ", iris.shape) 
+
+#first five sample 
+
+print ("Dataset: ",iris.head())  
+
+
+Output:         
