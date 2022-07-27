@@ -17,6 +17,8 @@ from sklearn.datasets import load_iris
 import sklearn.metrics as metrics
 
 
+// pandas- For data manipulation ,  numpy- For numerical calculation, array. matplotlib is used for plotting graphs. Scikit-learn (sklearn) is a free machine learning library for Python //
+
 
 #Loading datasets 
 
@@ -33,13 +35,76 @@ print ("Dataset Shape: ", iris.shape)
 print ("Dataset: ",iris.head())  
 
 
-Output:
+OUTPUT:
 Dataset Shape: (150,4)
 Dataset :       0      1       2        3
           0    5.1    3.5     1.4      0.2
           1    4.9    3.0     1.4      0.2   
           2    4.7    3.2     1.3      0.2
           3    4.6    3.1     1.5      0.2
-          4    5.0    3.6     1.4      0.2     
+          4    5.0    3.6     1.4      0.2    
+          
+          
+          
+          
+          
+          
+# printing categories (setosa, versicolor,virginica)
+
+print(iris_data.target_names)
+
+# printing features of flower 
+
+print(iris_data.feature_names)
+
+
+
+OUTPUT: 
+['setosa' ,  'versicolor' ,  'viginica' ]
+['sepal length (cm)' , 'sepal width (cm)' , 'petal length (cm)' , 'petal width (cm)' ]
+
+
+
+there are 4 features :: sepal length , sepal width, petal length , petal width. The features have some values (150 sample) based on that flowers classified in three category that is setosa,  versicolor and virginica  (0,1 and 2).
+
+On the basis of features () we will decide which flower belongs to which category by training the model that we have 
+
+
+#printing samples and target 
+
+X = iris.values[:, 0:4] 
+
+Y = iris_data.target
+
+print(X[0:5])
+
+print(Y)
+
+
+OUTPUT: 
+
+          [ [  5.1    3.5     1.4      0.2]
+            [  4.9    3.0     1.4      0.2]   
+            [  4.7    3.2     1.3      0.2]
+            [  4.6    3.1     1.5      0.2]
+            [ 5.0    3.6     1.4      0.2 ] ]
+          
+            [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+            0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2
+            2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+            2 2]
+            
+            
+            
+            
+#defining random forest classifier 
+
+clfr= RandomForestClassifier(random_state = 100)
+
+# Performing training 
+
+clfr.fit(X_train, y_train)
+
 
 
